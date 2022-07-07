@@ -19,6 +19,69 @@ The string is an immutable type in C#, which means it can't be changed once it's
 
 			return array2;
 		}
+2.
+using System;
+using System.Text;
+using System.Collections;
+namespace Exercise03
+{
+	public class EmptyClass
+	{
+		public EmptyClass()
+		{
+		}
+
+		public void todoListManage() {
+			string yes = "y";
+			var arraylist = new ArrayList();
+			string command = "nothing";
+
+			do
+			{
+				Console.WriteLine("Enter command (+ item, - item, or -- to clear)):");
+				command = Console.ReadLine();
+				string[] array = command.Split(" ");
+				switch (array[0])
+				{
+
+					case "+":
+						Console.WriteLine($"Add {array[1]}");
+                        Console.WriteLine();
+						arraylist.Add(array[1]);
+						break;
+
+					case "-":
+						Console.WriteLine($"Delete {array[1]}");
+                        Console.WriteLine();
+						arraylist.Remove(array[1]);
+						break;
+
+					case "--":
+						Console.WriteLine($"Delete All");
+                        Console.WriteLine();
+						arraylist.Clear();
+						break;
+
+					default:
+						Console.WriteLine("Nothing i can do.");
+                        Console.WriteLine();
+						break;
+				}
+                Console.WriteLine();
+                Console.WriteLine("________________LIST_____________________");
+				foreach (string item in arraylist) {
+                    Console.WriteLine(item);
+				}
+                Console.WriteLine();
+				Console.WriteLine("Do you want to continue?(y/n)");
+				yes = Console.ReadLine();
+
+			} while (yes == "y");
+
+		}
+	}
+}
+
 
 
 3.
