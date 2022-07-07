@@ -1,0 +1,289 @@
+1.
+A person’s telephone number   - int
+
+A person’s height - float
+
+A person’s age - uint
+
+A person’s gender (Male, Female, Prefer Not To Answer) - boolean
+
+A person’s salary - uint
+
+A book’s ISBN - ulong
+
+A book’s price - ufloat
+
+A book’s shipping weight - float
+
+A country’s population - ulong
+
+The number of stars in the universe - ulong
+
+The number of employees in each of the small or medium businesses in the - United Kingdom (up to about 50,000 employees per business) - int
+
+
+2. What is the difference between value type and reference type variables? What are boxing and unboxing?
+
+A Value Type holds the data within its own memory allocation and a Reference Type contains a pointer to another memory location that holds the real data.
+
+Boxing is the process of converting a value type to the type object or to any interface type implemented by this value type.
+
+
+3. What is meant by the terms managed resource and unmanaged resource in .NET
+
+Managed resources are those that are pure. NET code and managed by the runtime and are under its direct control. Unmanaged resources are those that are not.
+
+int i = 123;
+// The following line boxes i.
+object o = i;
+
+o = 123;
+i = (int)o;  // unboxing
+
+4. Whats the purpose of Garbage Collector in .NET?
+
+. NET's garbage collector manages the allocation and release of memory for your application. Each time you create a new object, the common language runtime allocates memory for the object from the managed heap.
+
+5.
+class Program
+    {
+        static void Main(string[] args)
+        {
+          string color;
+          string astrologySign;
+          string streetName;
+          int number;
+
+          Console.WriteLine("Enter your favorit color: ");
+          color = Console.ReadLine();
+          Console.WriteLine("Enter your astrology sign: ");
+          astrologySign = Console.ReadLine();
+          Console.WriteLine("Enter your street name: ");
+          streetName = Console.ReadLine();
+          Console.WriteLine("Enter your street number: ");
+          number = Convert.ToInt32(Console.ReadLine());
+
+          Console.WriteLine("Your hacker name is " + color + astrologySign + streetName + number);
+		}
+}
+
+Practice number sizes and ranges
+
+1.
+class Program
+    {
+        static void Main(string[] args)
+        {
+
+        Console.WriteLine($"|sbyte  Size of sbyte :{sizeof(sbyte)}  Min value : {sbyte.MinValue} , Max value : {sbyte.MaxValue}");
+        Console.WriteLine($"|byte   Size of byte  :{sizeof(byte)}   Min value: {byte.MinValue} , Max value :{byte.MaxValue} ");
+        Console.WriteLine($"|short  Size of short : {sizeof(short)}  Min value :{short.MinValue} , Max Value : {short.MaxValue} ");
+        Console.WriteLine($"|int  Size of int : {sizeof(int)}  Min value :{int.MinValue} , Max Value : {int.MaxValue} ");
+        Console.WriteLine($"|uint  Size of uint : {sizeof(uint)}  Min value :{uint.MinValue} , Max Value : {uint.MaxValue} ");
+        Console.WriteLine($"|float  Size of float : {sizeof(float)}  Min value :{float.MinValue} , Max Value : {float.MaxValue} ");
+        Console.WriteLine($"|double  Size of double : {sizeof(double)}  Min value :{double.MinValue} , Max Value : {double.MaxValue} ");
+        Console.WriteLine($"|decimal Size of decimal : {sizeof(decimal)}  Min value :{decimal.MinValue} , Max Value : {decimal.MaxValue} ");
+        Console.WriteLine($"|long Size of long : {sizeof(long)}  Min value :{long.MinValue} , Max Value : {long.MaxValue} ");
+        Console.WriteLine($"|ulong Size of ulong : {sizeof(ulong)}  Min value :{ulong.MinValue} , Max Value : {ulong.MaxValue} ");
+    }
+}
+
+2.
+class Program
+  {
+  static void Main(string[] args)
+  {
+      uint centuries = 100;
+      uint years = 36524;
+      uint days = 876576;
+      uint hours = 52594560;
+      ulong minutes = 3155673600;
+      ulong seconds = 3155673600000;
+      ulong milliseconds = 3155673600000000;
+      ulong microseconds = 3155673600000000000;
+      int number;
+
+      Console.WriteLine("Please enter an integer : ");
+      number = int.Parse (Console.ReadLine());
+
+      Console.WriteLine($"Output : {number} centuries = {number * centuries} years = {number * years}" +
+          $" days = { number * days} " +
+          $" hours = {number * hours}" +
+          $" minutes = {(ulong)number * minutes}" +
+          $" second = {(ulong)number * seconds}" +
+          $" milliseconds = {(ulong)number * milliseconds}" +
+          $" microseconds = {(ulong)number * microseconds}");
+  }
+}
+
+Controlling Flow and Converting Types
+Test your Knowledge
+
+1. The system throws the exception when there is an attempt to divide an integral or Decimal value by zero.
+System.DivideByZeroException: "Attempted to divide by zero."
+
+2. The system throws an Unhandled exception: System.DivideByZeroException: "Attempted to divide by zero."
+
+
+3. What happens when you overflow an int variable, that is, set it to a value beyond its
+Range?
+
+From my observations when you try to set an int to 2147483648 (the range of int positive numbers is 2147483647). The Complier will stop you and remind you that you need to convert int to unit.
+If a variable adds overflow in the program. The variable wraps around from INT_MAX to INT_MIN.
+
+4. What is the difference between x = y++; and x = ++y;?
+Postfix increment operator
+ x = y++ is assigned y to x first, then plus one.
+Prefix increment operator
+x  = ++ y is plus one first the assign the y to x.
+
+5. difference between break, continue, and return 
+
+Break is used to exit from a loop or a switch case.
+Continue to break the iteration this time and jump to the next iteration.
+ Return will exit the entire method. 
+ 
+6. What are the three parts of a for statement and which of them are required?
+
+Initialization clause : control the number of the loop.
+condition clause: the loop will be excited as long as the condition is valid.
+iteration clause: increment or decrement the counter variable.
+
+7. difference between the = and == operators?
+
+The “ = ” is the operator to assign a value to a variable.
+The “ == ” is checking whether the two variables’ values are the same or not. 
+
+8. for ( ; true; ) ;
+This is like a while(true), due to condition is true. This for loop will loop forever.
+
+9. What does the underscore _ represent in a switch expression?
+
+10. 
+
+For each is used to iterate over eflements of an Enumerable object. Enumerable means anything that has some kind of list or array nature.
+
+int Begin = 101;
+Practice loops and operators
+
+1.FizzBuzz
+class Program
+    {
+    static void Main(string[] args)
+        {
+      for (int i = 1; i < Begin; i++) {
+          if (i % 3 == 0)
+          {
+              Console.Write(" ,fizz");
+          }
+          else if (i % 5 == 0)
+          {
+              Console.Write(" ,buzz");
+          }
+          else if (i % 3 == 0 && i % 5 == 0)
+          {
+              Console.Write(" ,fizzbuzz");
+          }
+          else {
+              Console.Write(", "+i  );
+          }
+       }
+   }
+
+2.
+
+Everytime wen the i reached 256 the i will convert to negative -255
+
+
+3.
+class GuessNumber
+
+{
+    static void Main(string[] args)
+    {
+        int Input;
+        int correctNumber = new Random().Next(3) + 1;
+        do
+        {
+            Console.WriteLine("Please enter number between 1 and 3 :");
+            Input = int.Parse(Console.ReadLine());
+            if (Input > correctNumber)
+            {
+                Console.WriteLine("Too high!");
+            }
+            else if (Input < correctNumber)
+            {
+                Console.WriteLine("Too low");
+            }
+
+        } while (Input != correctNumber);
+        Console.WriteLine("Congradulation!");
+    }
+}
+
+
+Print-a-Pyramid
+
+    int i, j;
+    int space = 5;
+    int MAX = space;
+
+    for (i = 0; i < MAX; i++)
+    {
+        for (j = 0; j < space; j++)
+        {
+            Console.Write(" ");
+        }
+        for (j = 0; j <= i; j++)
+        {
+            Console.Write("* ");
+        }
+        Console.Write("\n");
+        space--;
+    }
+    Console.ReadLine();
+5.
+
+	DateTime curTime = DateTime.Now;
+	
+	int curHour = curTime.Hour;
+   	 int Morning= 6;
+	int Afternoon= 12;
+	int Evening = 17;
+	int Night = 22;
+
+	if (Morning <= curHour && curHour < Afternoon)
+	{
+		Console.WriteLine("Good morning!");
+	}
+	else if (Afternoon <= curHour && curHour < Evening)
+	{
+		Console.WriteLine("Good Afternoon!");
+	}
+	else if (Evening <= curHour && curHour < Night)
+	{
+		Console.WriteLine("Good Evening!");
+	}
+	else if (Night <= curHour || curHour < Morning)
+	{
+		Console.WriteLine("Good Night!");
+	}
+
+
+	Console.WriteLine($"Current time {curTime.Hour}:{curTime.Minute} .");
+6.
+
+for (int i = 1; i <= 4; i += 1)
+{
+
+	for (int j = 0; j <= 24; j += i)
+	{
+		Console.Write(j.ToString() + ", ");
+	}
+
+	Console.WriteLine();
+}
+
+
+
+
