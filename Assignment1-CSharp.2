@@ -1,0 +1,235 @@
+
+1.
+The string is an immutable type in C#, which means it can't be changed once it's been created. StringBuilder, on the other hand, is mutable, which means that if an operation is performed on the string object, it won't construct a new instance in memory every time, unlike string.
+
+2.The Array class is the base class for all the arrays in C#.
+3.The simplest way to sort an array in C# is using Array. Sort method
+4.Length Property
+5.Yes, if we create an object array.
+6.The Clone() method returns a new array (a shallow copy) object containing all the elements in the original array. The CopyTo() method copies the elements into another existing array. Both perform a shallow copy.
+
+
+1.
+	public int[] copyArray(int[] array1) {
+			int[] array2 = new int[array1.Length];
+			int idx = 0;
+			foreach (int i in array1) {
+				array2[idx++] = i;
+			}
+
+			return array2;
+		}
+
+
+3.
+    private static int[] FindPrimesInRange(startNum, endNum)
+		{
+			int[] nums = new int[endNum - startNum];
+			int index = 0;
+
+			for (int i = startNum; i <= endNum; i++)
+			{
+
+				if (IsPrime(i))
+				{
+					nums[index++] = i;
+				}
+			}
+
+			return nums;
+
+		}
+
+		public static bool IsPrime(int number)
+		{
+			if (number <= 1) return false;
+			if (number == 2) return true;
+			if (number % 2 == 0) return false;
+
+			var boundary = (int)Math.Floor(Math.Sqrt(number));
+
+			for (int i = 3; i <= boundary; i += 2)
+				if (number % i == 0)
+					return false;
+
+			return true;
+		}
+	}
+
+5.
+
+	public class EmptyClass
+	{
+	
+
+
+		public void longestSequence(int[]numbers)
+		{
+
+            int count = 1;
+           
+            int longestNum = numbers[0];
+        
+            int longestCount = 1;
+
+            for (int i = 1; i < numbers.Length; i++)
+            {
+               
+                if (numbers[i] != numbers[i - 1])
+                {
+                    count = 0;
+                }
+
+                count++;
+              
+                if (count > longestCount)
+                {
+                    longestCount = count;
+                    longestNum = numbers[i];
+                }
+            }
+
+            Console.WriteLine(
+                string.Join(" ", Enumerable.Repeat(longestNum, longestCount)));
+
+          
+            int[] result = new int[longestCount];
+            Array.Fill(result, longestNum);
+
+            foreach (int i in result) {
+                Console.Write( i + " " );
+            }
+        }
+	}
+
+
+
+
+1.	public class EmptyClass
+	{
+		public EmptyClass()
+		{
+		}
+
+
+		public ArrayList enterString() {
+			var arlist1 = new ArrayList();
+			string c = "y";
+			do
+			{
+				Console.Write("Please enter a word : ");
+				arlist1.Add(Console.ReadLine());
+				Console.Write("Do you want to continue?(y/n)");
+				c = Console.ReadLine();
+			} while (c == "y");
+
+			return arlist1;
+		}
+
+		public void reverseAll() {
+			var arlist1 = enterString();
+			var arlist2 = new ArrayList();
+
+			foreach (string s in arlist1) {
+				arlist2.Add(Reverse(s));
+			}
+            Console.WriteLine();
+			for (int i = 0; i < arlist2.Count; i++) {
+                Console.WriteLine($"{arlist1[i]}    {arlist2[i]}");
+			}
+		}
+
+		public string Reverse(string s)
+		{
+			char[] charArray = s.ToCharArray();
+			Array.Reverse(charArray);
+			return new string(charArray);
+		}
+	}
+}
+
+2. 
+
+public static string ReverseWords(string str) {
+ return String.Join(" ", str.Split('.', ' ').Reverse()).ToString(); }
+
+
+3.
+public class EmptyClass
+	{
+		public EmptyClass()
+		{
+		}
+
+        public string StripPunctuation( string s)
+        {
+            var sb = new StringBuilder();
+            foreach (char c in s)
+            {
+                if (!char.IsPunctuation(c))
+                {
+                    sb.Append(c);
+                } else if (char.IsPunctuation(c)) {
+                    sb.Append(" ");
+                }
+            }
+            return sb.ToString();
+        }
+
+        public void allPalindromes (string path)
+        {
+            string clear = StripPunctuation(path);
+            string[] strArray = clear.Split(" ");
+            var arlist1 = new ArrayList();
+            foreach (string s in strArray) {
+                if (checkPalin(s)) {
+                    arlist1.Add(s);
+                }
+            }
+
+            arlist1.Sort();
+            foreach (string v in arlist1) {
+                Console.Write(v+" ");
+            }
+        }
+
+        public  bool checkPalin(string word)
+        {
+            int n = word.Length;
+            word = word.ToLower();
+            for (int i = 0; i < n; i++, n--)
+            {
+                if (word[i] != word[n - 1])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+
+
+4. public class EmptyClass
+	{
+		public EmptyClass()
+		{
+		}
+
+        public void parsesURL(string path)
+        {
+            string protocol = "";
+            string server = "";
+            string resource = "";
+            string[] parses = path.Split("/");
+
+            protocol = parses[0].Substring(0, parses[0].Length - 1);
+            server = parses[2];
+            resource = parses[3];
+
+            Console.WriteLine($"[protocol] = {protocol}");
+            Console.WriteLine($"[server] = {server}");
+            Console.WriteLine($"[resource] = {resource}");
+        }
+    }
+
