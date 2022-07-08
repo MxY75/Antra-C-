@@ -1,0 +1,437 @@
+Test your knowledge
+
+1. What are the six combinations of access modifier keywords and what do they do?
+
+Public
+
+ Objects that implement public access modifiers are accessible from everywhere in a project without any restrictions.
+
+Private
+Objects that implement private access modifiers are accessible only inside a class or a structure. As a result, we can’t access them outside the class they are created.
+
+Protected 
+The protected keyword implies that the object is accessible inside the class and in all classes that derive from that class.
+
+Internal
+​​For the Internal keywords, the access is limited exclusively to classes defined within the current project assembly.
+
+Protected internal 
+The protected internal access modifier is a combination of protected and internal. As a result, we can access the protected internal member only in the same assembly or in a derived class in other assemblies.
+
+Private Protected
+The private protected access modifier is a combination of private and protected keywords. We can access members inside the containing class or in a class that derives from a containing class, but only in the same assembly(project).
+
+ 2. What is the difference between the static, const, and readonly keywords when applied to a type member?
+
+3. What does a constructor do?
+Constructor is a special method that shares the same name as the class and does not have a return type (not even void).
+Constructors are used to creating an object of the class and initialize class members. If there are no constructors in the class, the compiler provides a default constructor.
+The default constructor does not take any input parameters.
+if we create any other constructors, the default will be replaced.
+Constructors are overloadable but cannot be overridden.
+By default, the derived class constructor will make a call to the base parameterless constructor.
+
+4. Why is the partial keyword useful?
+
+A partial class is a special feature of C#. It provides a special ability to implement the functionality of a single class into multiple files and all these files are combined into a single class file when the application is compiled. A partial class is created by using a partial keyword.
+5. What is a tuple?
+
+The word Tuple means “a data structure which consists of the multiple parts”. So tuple is a data structure that gives you the easiest way to represent a data set that has multiple values that may/may not be related to each other.
+
+6. What does the C# record keyword do?
+C# 9 introduces records, a new reference type that you can create instead of classes or structs. C# 10 adds record structs so that you can define records as value types.
+
+7. What do overloading and overriding mean?
+Method overriding: 
+ Methods in base class and its subclasses share the same method name and same input parameters
+
+Method overloading:
+Methods in same class share the same method but implement in different ways different number od paramater/ data type / order of data type.Changing the return not the overloading.
+
+8.What is the difference between a field and a property?
+Properties expose fields. Fields should (almost always) be kept private to a class and accessed via get and set properties. Properties provide a level of abstraction allowing you to change the fields while not affecting the external way they are accessed by the things that use your class.
+
+9. How do you make a method parameter optional?
+By using default value
+Using keyword param 
+
+
+10.
+    Interface va abstract classes
+    Interface supprot multi inhertance abstract does not
+    Interfaces can not have instanced constru but abstract classes can(theroyically)
+     Interfaces has by deafult all members to be considered 'abstract' and public but abstracres classes can have both abstract and contrete members
+    Interface no field , but abstract have field internal
+12.T
+13.F
+14.F
+15.F
+16.T
+17.T
+18.F
+19.F
+20.F
+21.T
+22.F
+23.T
+
+
+Working with methods
+
+1.
+   static int[] GenerateNumbers() {
+            int[] array = new int[10];
+            int idx = 0;
+            int value = 1;
+            foreach(int i in array) {
+                array[idx++] = value++;
+            }
+            return array;
+        }
+
+static void rvereseArray(int []arr,
+                    int left, int right)
+    {
+        int temp;
+         
+        while (left < right)
+        {
+            temp = arr[left];
+            arr[left] = arr[right];
+            arr[end] = temp;
+            left++;
+            right--;
+        }
+    }    
+     
+ 
+    static void printArray(int []arr,
+                            int size)
+    {
+        for (int i = 0; i < size; i++)
+            Console.Write(arr[i] + " ");
+         
+        Console.WriteLine();
+    }
+
+2.
+​​class Program
+    {
+
+        public static int Fib(int n)
+        {
+            if (n <= 1)
+            {
+                return n;
+            }
+            else
+            {
+                return Fib(n - 1) + Fib(n - 2);
+            }
+        }
+
+
+        public static void Main()
+        {
+            int n1 = 1, n2 = 1, n3, i;
+            Console.Write(n1 + " " + n2 + " ");
+            for (i = 2; i < 10; ++i)
+            {
+                n3 = n1 + n2;
+                Console.Write(n3 + " ");
+                n1 = n2;
+                n2 = n3;
+            }
+
+            Console.WriteLine( Program.Fib(8));
+
+        }
+
+    }
+
+Designing and Building Classes using object-oriented principles
+1.	abstract class Shape
+	{
+		public abstract double area();
+	}
+
+    class Circle : Shape
+    {
+
+        private float pie;
+        private int Diameter { get; set; }
+
+        public Circle(int d, float p) {
+            this.Diameter = d;
+            this.pie = p;
+
+        }
+
+        public override double area()
+        {
+
+            return pie * Diameter * Diameter;
+           
+        }
+    }
+
+    class Triangle : Shape {
+        private int Height;
+        private int Base;
+
+        public Triangle(int h, int b) {
+            this.Height = h;
+            this.Base = b;
+        }
+        public override double area()
+        {
+            return (Height * Base) / 2;
+        }
+    }
+}
+
+
+1.using System;
+namespace exercise7
+{
+	abstract class Shape
+	{
+		public abstract double area();
+	}
+
+    class Circle : Shape
+    {
+
+        private float pie;
+        private int Diameter { get; set; }
+
+        public Circle(int d, float p) {
+            this.Diameter = d;
+            this.pie = p;
+
+        }
+
+        public override double area()
+        {
+
+            return pie * Diameter * Diameter;
+           
+        }
+    }
+
+    class Triangle : Shape {
+        private int Height;
+        private int Base;
+
+        public Triangle(int h, int b) {
+            this.Height = h;
+            this.Base = b;
+        }
+        public override double area()
+        {
+            return (Height * Base) / 2;
+        }
+    }
+}
+
+
+2-6.
+using System;
+using System.Collections;
+namespace exercise7
+{
+	public class Person :IPersonService
+	{
+
+		internal int age;
+		internal string name;
+		internal double salary;
+		ArrayList addressList;
+		public Person(int page, string pname)
+		{
+			this.age = page;
+			this.name = pname;
+	    }
+
+		public Person(int page, string pname,double sa)
+		{
+			this.age = page;
+			this.name = pname;
+			this.salary = sa;
+		}
+
+		public void addAddress(string address) {
+			addressList.Add(address);
+
+		}
+        public int CalcuAge()
+        {
+			return age;
+        }
+
+        public decimal CalcuSal()
+        {
+			return (decimal)salary;
+        }
+
+        public void listAddress()
+        {
+
+			Console.WriteLine("______Address List_______");
+			foreach (string address in addressList) {
+                Console.WriteLine(address);
+			}
+        }
+    }
+}
+
+
+7.
+using System;
+
+class Color
+{
+    private int red;
+    private int green;
+    private int blue;
+    private int alpha;
+
+    //Color constructor
+    public Color(int red, int green, int blue, int alpha = 255)
+    {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+        this.alpha = alpha;
+    }
+    //getters for data members
+    public int getRed()
+    {
+        return red;
+    }
+    public int getGreen()
+    {
+        return green;
+    }
+    public int getBlue()
+    {
+        return blue;
+    }
+
+    public int getAlpha()
+    {
+        return alpha;
+    }
+
+    //setters for data members
+    public void setRed(int red)
+    {
+        this.red = red;
+    }
+    public void setGreen(int green)
+    {
+        this.green = green;
+    }
+    public void setBlue(int blue)
+    {
+        this.blue = blue;
+    }
+
+    public void setAlpha(int alpha)
+    {
+        this.alpha = alpha;
+    }
+
+    //get the grayscale value
+    public double getGrayScaleValue()
+    {
+        return ((red + green + blue) * 1.0) / 3;
+    }
+}
+
+class Ball
+{
+    private int size;
+    private Color color;
+    private int numThrows;
+
+    //constructor for Ball class
+    public Ball(int size, Color color)
+    {
+        this.size = size;
+        this.color = color;
+        numThrows = 0;
+    }
+
+    //getters and setters for data members
+    public int getSize()
+    {
+        return size;
+    }
+
+    public Color getColor()
+    {
+        return color;
+    }
+
+    public void Pop()
+    {
+        size = 0;
+    }
+
+    public void Throw()
+    {
+        //if ball has not been popped : add the number of throws
+        if (size != 0)
+        {
+            numThrows++;
+        }
+    }
+
+    public int getNumThrows()
+    {
+        return numThrows;
+    }
+
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Color color1 = new Color(18, 243, 107);
+        Ball ball1 = new Ball(4, color1);
+
+        //throw the ball 3 times
+        ball1.Throw();
+        ball1.Throw();
+        ball1.Throw();
+        Console.WriteLine("Throw count of Ball 1 before popping: " + ball1.getNumThrows());
+
+        //pop the ball
+        ball1.Pop();
+
+        //throw the ball twice again after popping the ball
+        ball1.Throw();
+        ball1.Throw();
+
+        //print the number of throws : should be same (as ball was popped)
+        Console.WriteLine("Throw count of Ball 1 after popping: " + ball1.getNumThrows());
+
+
+        Console.WriteLine();
+
+        //create another color and ball object
+        Color color2 = new Color(27, 87, 94, 148);
+        Ball ball2 = new Ball(2, color2);
+
+        ball2.Pop(); //pop the ball
+
+        //throw the ball2 5 times
+        for (int i = 0; i < 5; i++) ball2.Throw();
+
+        //output should be zero as ball was popped initially
+        Console.WriteLine("Ball 2 throw count: " + ball2.getNumThrows());
+    }
+}
+
